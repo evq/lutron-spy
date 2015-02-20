@@ -1,0 +1,60 @@
+{"remotes": {
+  "AEB551": {
+    "nickname": "bedside",
+    "buttons": {
+      "on": {
+        "url": "http://192.168.1.1/api/blah/lights/2/state",
+        "data": {
+          "on": true
+        },
+        "method": "PUT"
+      },
+      "off": {
+        "url": "http://192.168.1.1/api/blah/lights/2/state",
+        "data": {
+          "on": false
+        },
+        "method": "PUT"
+      }
+    }
+  },
+  "ABE6F4": {
+    "nickname": "upstairs",
+    "buttons": {
+      "on": {
+        "url": "http://192.168.1.1/api/blah/lights/2/state",
+        "data": {
+          "on": true
+        },
+        "method": "PUT"
+      },
+      "off": {
+        "url": "http://192.168.1.1/api/blah/lights/2/state",
+        "data": {
+          "on": false
+        },
+        "method": "PUT"
+      }
+    }
+  },
+  "AFA592": {
+    "nickname": "downstairs",
+    "buttons": {
+      "on": {
+        "url": "http://192.168.1.1/api/blah/lights/4/state",
+        "data": {
+          "on": true
+        },
+        "method": "PUT"
+      },
+      "off": {
+        "url": "http://192.168.1.1/api/blah/lights/4/state",
+        "data": {
+          "on": false
+        },
+        "method": "PUT"
+      }
+    }
+  }
+
+}}

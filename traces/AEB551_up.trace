@@ -1,0 +1,15 @@
+Device --> ~ (7e) <SOH> (01) <FF> (0c) <ENQ> (05) <NUL> (00) � (81) <NUL> (00) � (ae) � (b5) Q (51) <NUL> (00) <ENQ> (05) <NUL> (00) <NUL> (00) � (be) ~ (7e)
+
+Host   --> ~ (7e) <SOH> (01) � (89) � (a3) ~ (7e)
+
+Device --> ~ (7e) <SOH> (01) <FS> (1c) <ENQ> (05) <CR> (0d) � (81) <NUL> (00) � (ae) � (b5) Q (51) <NUL> (00) <GS> (1d) ~ (7e)
+
+Host   --> ~ (7e) <SOH> (01) � (8a) � (aa) ~ (7e)
+
+Device --> ~ (7e) <SOH> (01) , (2c) <ENQ> (05) <NUL> (00) � (82) <NUL> (00) � (ae) � (b5) Q (51) <NUL> (00) <ENQ> (05) <SOH> (01) <NUL> (00) � (b1) ~ (7e)
+
+Host   --> ~ (7e) <SOH> (01) � (8b) � (ad) ~ (7e)
+
+Device --> ~ (7e) <SOH> (01) < (3c) <ENQ> (05) <DC3> (13) � (82) <NUL> (00) � (ae) � (b5) Q (51) <NUL> (00) <SOH> (01) <NUL> (00) <SYN> (16) � (8c) ~ (7e)
+
+Host   --> ~ (7e) <SOH> (01) � (8c) � (b8) ~ (7e)

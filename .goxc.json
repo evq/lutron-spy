@@ -1,0 +1,11 @@
+{
+	"Tasks": [
+		"xc"
+	],
+	"TaskSettings": {
+		"xc": {
+			"GOARM": "5"
+		}
+	},
+	"ConfigVersion": "0.9"
+}
