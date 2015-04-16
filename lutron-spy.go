@@ -21,7 +21,7 @@ type RemoteConfig struct {
 			Data   interface{} `json:"data"`
 			URL    string      `json:"url"`
 			Method string      `json:"method"`
-		  Type   string      `json:"type"`
+			Type   string      `json:"type"`
 		} `json:"buttons"`
 	} `json:"remotes"`
 }
@@ -117,11 +117,19 @@ func handleButtonPress(serial string, button byte) {
 	if val, ok := config.Remotes[serial]; ok {
 		fmt.Println("nickname: ", val.Nickname)
 		if val2, ok := val.Buttons[BUTTONS[button]]; ok {
-			b, err := json.Marshal(val2.Data)
-			if err != nil {
-				fmt.Println("Fatal Error, data could not be remarshalled")
-				os.Exit(1)
+			var b []byte
+			var err error
+			switch v := val2.Data.(type) {
+			case string:
+				b = []byte(v)
+			default:
+				b, err = json.Marshal(v)
+				if err != nil {
+					fmt.Println("Fatal Error, data could not be remarshalled")
+					os.Exit(1)
+				}
 			}
+
 			fmt.Printf("%s %s %s %s\n", val2.Method, string(b), val2.Type, val2.URL)
 
 			req, err := http.NewRequest(val2.Method, val2.URL, bytes.NewBuffer(b))
