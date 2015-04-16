@@ -7,14 +7,16 @@
         "data": {
           "on": true
         },
-        "method": "PUT"
+        "method": "PUT",
+        "type": "application/json"
       },
       "off": {
         "url": "http://192.168.1.1/api/blah/lights/2/state",
         "data": {
           "on": false
         },
-        "method": "PUT"
+        "method": "PUT",
+        "type": "application/json"
       }
     }
   },
@@ -26,14 +28,16 @@
         "data": {
           "on": true
         },
-        "method": "PUT"
+        "method": "PUT",
+        "type": "application/json"
       },
       "off": {
         "url": "http://192.168.1.1/api/blah/lights/2/state",
         "data": {
           "on": false
         },
-        "method": "PUT"
+        "method": "PUT",
+        "type": "application/json"
       }
     }
   },
@@ -45,14 +49,16 @@
         "data": {
           "on": true
         },
-        "method": "PUT"
+        "method": "PUT",
+        "type": "application/json"
       },
       "off": {
         "url": "http://192.168.1.1/api/blah/lights/4/state",
         "data": {
           "on": false
         },
-        "method": "PUT"
+        "method": "PUT",
+        "type": "application/json"
       }
     }
   }

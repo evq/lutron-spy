@@ -28,8 +28,18 @@ $GOPATH/bin/lutron-spy-xc/snapshot/linux_arm/lutron-spy
 ## Configuration
 
 Configuration is done via a json file which specifies which HTTP method,
+content-type,
 url and data to make a request with. Simply copy example-config.json to
-remote-config.json and customize it.
+remote-config.json and customize it. The serial number is not the one
+listed on the back of the remotes, it can either be found in the sqlite3 
+database and converted to hex or from lutron-spy output. Pressing a button
+on an unconfigured remote will result in the serial and button number being
+printed, but no further action.
+
+```
+serial:  FFA265
+button: 2
+```
 
 ## Usage
 

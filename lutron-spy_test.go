@@ -25,6 +25,17 @@ func TestMain(m *testing.M) {
 	os.Exit(m.Run())
 }
 
+// Test results with unpaired remote
+func Example_spy_ur_on() {
+	tf, _ := os.Open("traces/FFA265_on.trace")
+	spy(tf)
+	// Output:
+	// serial:  FFA265
+	// button: 2
+	//
+	// EOF reached.
+}
+
 func Example_spy_r1_on() {
 	tf, _ := os.Open("traces/AEB551_on.trace")
 	spy(tf)
@@ -32,7 +43,7 @@ func Example_spy_r1_on() {
 	// serial:  AEB551
 	// button: 2
 	// nickname:  bedside
-	// PUT {"on":true} http://192.168.1.1/api/blah/lights/2/state
+	// PUT {"on":true} application/json http://192.168.1.1/api/blah/lights/2/state
 	//
 	// EOF reached.
 }
