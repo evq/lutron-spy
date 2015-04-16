@@ -21,6 +21,7 @@ type RemoteConfig struct {
 			Data   interface{} `json:"data"`
 			URL    string      `json:"url"`
 			Method string      `json:"method"`
+		  Type   string      `json:"type"`
 		} `json:"buttons"`
 	} `json:"remotes"`
 }
@@ -121,14 +122,14 @@ func handleButtonPress(serial string, button byte) {
 				fmt.Println("Fatal Error, data could not be remarshalled")
 				os.Exit(1)
 			}
-			fmt.Printf("%s %s %s\n", val2.Method, string(b), val2.URL)
+			fmt.Printf("%s %s %s %s\n", val2.Method, string(b), val2.Type, val2.URL)
 
 			req, err := http.NewRequest(val2.Method, val2.URL, bytes.NewBuffer(b))
 			if err != nil {
 				fmt.Println("Configured request is invalid")
 			}
 
-			req.Header.Set("Content-Type", "application/json")
+			req.Header.Set("Content-Type", val2.Type)
 
 			_, err = client.Do(req)
 			if err != nil {
