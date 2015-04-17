@@ -1,4 +1,7 @@
 {
+  "Arch": "arm",
+  "Os": "linux",
+  "OutPath": "lutron-spy",
 	"Tasks": [
 		"xc"
 	],

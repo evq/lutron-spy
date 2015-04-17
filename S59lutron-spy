@@ -1,0 +1,26 @@
+#!/bin/sh
+case "${1}" in
+   start)
+      echo -n "Starting lutron-spy"
+      /usr/local/bin/slsnif /dev/ttySP2 -x | /usr/local/bin/lutron-spy &
+      ps | grep lutron-spy > /dev/null && echo "[ OK ]" || echo "[ FAIL ]"
+      ;;
+
+   stop)
+      echo -n "Stopping lutron-spy"
+      killall -q lutron-spy slsnif && echo "[ OK ]" || echo "[ FAIL ]"
+      ;;
+
+   restart)
+      /etc/init.d/S60lutron-core stop
+      ${0} stop
+      sleep 1
+      ${0} start
+      /etc/init.d/S60lutron-core start
+      ;;
+
+   *)
+      echo "Usage: $0 [start|stop|restart]"
+      ;;
+esac
+

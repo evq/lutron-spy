@@ -16,35 +16,19 @@ a buildroot available in the form of a [docker container.](https://github.com/ev
 Install [goxc](https://github.com/laher/goxc)
 
 ```bash
-goxc
+make
 ```
 
-You can then find the cross compiled binary in 
+You can then find the cross compiled binary in the source directory.
 
-```
-$GOPATH/bin/lutron-spy-xc/snapshot/linux_arm/lutron-spy
-```
+## Installation
+
+Copy lutron-spy to /usr/local/bin/ and S59lutron-spy to /etc/init.d/ on your
+Wink hub.
 
 ## Configuration
 
-Configuration is done via a json file which specifies which HTTP method,
-content-type,
-url and data to make a request with. Simply copy example-config.json to
-remote-config.json and customize it. The serial number is not the one
-listed on the back of the remotes, it can either be found in the sqlite3 
-database and converted to hex or from lutron-spy output. Pressing a button
-on an unconfigured remote will result in the serial and button number being
-printed, but no further action.
-
-```
-serial:  FFA265
-button: 2
-```
-
-## Usage
-
 ```bash
-/etc/init.d/S60lutron-core stop
 vi /etc/lutron.d/lutron.conf
 ```
 
@@ -61,10 +45,31 @@ Change the contents to:
 }
 ```
 
-```bash
-./slsnif /dev/ttySP2 -x | ./lutron-spy &
-/etc/init.d/S60lutron-core start
+Remote configuration is done via a json file which specifies which HTTP method,
+content-type,
+url and data to make a request with. Simply copy example-config.json to
+/etc/remote-config.json and customize it. The serial number is not the one
+listed on the back of the remotes, it can either be found in the sqlite3 
+database and converted to hex or from lutron-spy output. Pressing a button
+on an unconfigured remote will result in the serial and button number being
+printed, but no further action.
+
 ```
+serial:  FFA265
+button: 2
+```
+
+## Usage
+
+```bash
+/etc/init.d/S59lutron-spy restart
+```
+
+Due to interdependency with lutron-core (lutron-core must be stopped before
+starting lutron-spy, then started after lutron-spy), start and stop are
+assumed to only be run by rcS and rcK during startup and shutdown.
+/etc/init.d/S59lutron-spy restart will start lutron-spy even if
+it was not originally running.
 
 Remotes can be paired by using the built in aprontest binary.
 
