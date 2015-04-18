@@ -1,9 +1,15 @@
 {
+  "Arch": "arm",
+  "Os": "linux",
+  "OutPath": "lutron-spy",
 	"Tasks": [
 		"xc"
 	],
 	"TaskSettings": {
 		"xc": {
+			"GOARM": "5"
+		},
+		"toolchain": {
 			"GOARM": "5"
 		}
 	},

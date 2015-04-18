@@ -40,8 +40,17 @@ var config RemoteConfig
 var client *http.Client
 
 func main() {
-	f, _ := os.Open("remote-config.json")
-	parseConfig(f)
+	f, err := os.Open("/etc/remote-config.json")
+	if err != nil {
+		f, err = os.Open("remote-config.json")
+		if err != nil {
+			fmt.Println("Error, neither /etc/remote-config.json or remote-config.json exist")
+		} else {
+			parseConfig(f)
+		}
+	} else {
+		parseConfig(f)
+	}
 
 	client = &http.Client{}
 
